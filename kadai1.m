@@ -6,30 +6,15 @@
 
 clear; % •Ï”‚ÌƒI[ƒ‹ƒNƒŠƒA
 
-ORG=imread('Lenna.png'); % Œ´‰æ‘œ‚Ì“ü—Í
-imagesc(ORG); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
+ORG = imread('image/pharaoh.png'); % Œ´‰æ‘œ‚Ì“ü—Í
 
-IMG = imresize(ORG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,2,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,4,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,8,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,16,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,32,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
+for i = 0:5
+    if i == 0
+        IMG = ORG;
+    else
+        IMG = imresize(ORG,0.5); % ‰æ‘œ‚Ìk¬
+    end
+	IMG2 = imresize(IMG,2^i,'box'); % ‰æ‘œ‚ÌŠg‘å
+	imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
+	pause; % ˆê’â~
+end
